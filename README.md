@@ -2,22 +2,6 @@
 
 Ovaj projekt je jednostavna Flask aplikacija za upravljanje saksofonskim jezičcima. Omogućuje korisnicima dodavanje, pregledavanje, ažuriranje i brisanje jezičaka. Aplikacija je kontejnerizirana pomoću Dockera, što olakšava njezino postavljanje i pokretanje.
 
-## Struktura Projekta
-
-reed1/
-│
-├── app/
-│ ├── init.py
-│ ├── routes.py
-│ ├── models.py
-│ ├── templates/
-│ │ └── index.html
-│ └── static/
-│ └── style.css
-│
-├── Dockerfile
-├── requirements.txt
-└── run.py
 
 
 ## Preduvjeti
