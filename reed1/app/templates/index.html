@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustav upravljanja saksofonskim jezičcima</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Sustav upravljanja saksofonskim jezičcima</h1>
+    <form id="addReedForm">
+        <input type="text" name="type" placeholder="Type (e.g., alto, tenor)" required>
+        <input type="number" name="performance" placeholder="Performance" required>
+        <input type="number" name="adjustment_period" placeholder="Adjustment Period" required>
+        <button type="submit">Add Reed</button>
+    </form>
+    <ul id="reedList">
+        {% for reed in reeds %}
+        <li>
+            <h2>Reed ID: {{ reed.id }}</h2>
+            <p>Type: {{ reed.type }}</p>
+            <p>Performance: {{ reed.performance }}</p>
+            <p>Adjustment Period: {{ reed.adjustment_period }}</p>
+            <button onclick="editReed({{ reed.id }})">Edit</button>
+            <button onclick="deleteReed({{ reed.id }})">Delete</button>
+        </li>
+        {% endfor %}
+    </ul>
+    <script>
+        document.getElementById('addReedForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            fetch('/reed', {
+                method: 'POST',
+                body: formData
+            }).then(response => response.json())
+                .then(data => location.reload());
+        });
+
+        function editReed(id) {
+            const type = prompt('Enter new type:');
+            const performance = prompt('Enter new performance:');
+            const adjustment_period = prompt('Enter new adjustment period:');
+            if (type && performance && adjustment_period) {
+                const formData = new FormData();
+                formData.append('type', type);
+                formData.append('performance', performance);
+                formData.append('adjustment_period', adjustment_period);
+                fetch(`/reed/${id}`, {
+                    method: 'PUT',
+                    body: formData
+                }).then(response => response.json())
+                    .then(data => location.reload());
+            }
+        }
+
+        function deleteReed(id) {
+            fetch(`/reed/${id}`, {
+                method: 'DELETE'
+            }).then(response => response.json())
+                .then(data => location.reload());
+        }
+    </script>
+</body>
+
+</html>
