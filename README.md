@@ -17,8 +17,8 @@ Ovaj projekt je jednostavna Flask aplikacija za upravljanje saksofonskim jezičc
 1. Klonirajte repozitorij:
 
     ```sh
-    git clone https://github.com/vaše_korisničko_ime/flask_app.git
-    cd flask_app
+    git clone https://github.com/Jocodesip/susj.git
+    cd reed1
     ```
 
 ### Postavljanje Virtualnog Okruženja
@@ -86,7 +86,7 @@ Aplikacija pruža web sučelje za upravljanje jezičcima. Možete dodavati, ure�
 
 ### Brisanje Jezička
 
-1. Kliknite na gumb "Izbriši" pored jezička kojeg želite izbrisati.
+1. Kliknite na gumb "Obriši" pored jezička kojeg želite izbrisati.
 2. Potvrdite brisanje.
 
 ## Doprinosi
