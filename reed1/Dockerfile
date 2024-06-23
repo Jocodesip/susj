@@ -1,20 +1,20 @@
-# Use the official Python image from the Docker Hub
+# Koristi službenu Python sliku s Docker Huba
 FROM python:3.9-slim
 
-# Set the working directory
+# Postavi radni direktorij
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
+# Kopiraj sadržaj trenutnog direktorija u kontejner na /app
 COPY . /app
 
-# Install any needed packages specified in requirements.txt
+# Instaliraj potrebne pakete navedene u requirements.txt
 RUN pip install Flask==2.0.2 Werkzeug==2.0.3
 
-# Make port 5000 available to the world outside this container
+# Omogući port 5000 za vanjski pristup ovom kontejneru
 EXPOSE 5000
 
-# Define environment variable
+# Definiraj varijablu okruženja
 ENV FLASK_APP=run.py
 
-# Run app.py when the container launches
+# Pokreni app.py kada se kontejner pokrene
 CMD ["flask", "run", "--host=0.0.0.0"]
