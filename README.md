@@ -2,11 +2,10 @@
 
 Ovaj projekt je jednostavna Flask aplikacija za upravljanje saksofonskim jezičcima. Omogućuje korisnicima dodavanje, pregledavanje, ažuriranje i brisanje jezičaka. Aplikacija je kontejnerizirana pomoću Dockera, što olakšava njezino postavljanje i pokretanje.
 
-
-
 ## Preduvjeti
 
 - Python 3.9+
+- Flask-SQLAlchemy
 - Docker (za kontejnerizaciju)
 - Git
 
@@ -18,7 +17,7 @@ Ovaj projekt je jednostavna Flask aplikacija za upravljanje saksofonskim jezičc
 
     ```sh
     git clone https://github.com/Jocodesip/susj.git
-    cd reed1
+    cd susj/reed1
     ```
 
 ### Postavljanje Virtualnog Okruženja
@@ -48,7 +47,7 @@ Za pokretanje aplikacije lokalno bez Dockera:
     python run.py
     ```
 
-Aplikacija će biti dostupna na `http://localhost:5000`.
+Aplikacija će biti dostupna na `http://localhost:8000`.
 
 ## Pokretanje Aplikacije s Dockerom
 
@@ -63,10 +62,10 @@ Za izgradnju i pokretanje aplikacije koristeći Docker:
 2. Pokrenite Docker kontejner:
 
     ```sh
-    docker run -p 5000:5000 reed1
+    docker run -p 8000:8000 reed1
     ```
 
-Aplikacija će biti dostupna na `http://localhost:5000`.
+Aplikacija će biti dostupna na `http://localhost:8000`.
 
 ## Korištenje Aplikacije
 
@@ -76,17 +75,17 @@ Aplikacija pruža web sučelje za upravljanje jezičcima. Možete dodavati, ure�
 
 1. Otvorite aplikaciju u svom web pregledniku.
 2. Ispunite podatke o jezičku u obrascu.
-3. Kliknite na gumb "Dodaj jezičak".
+3. Kliknite na gumb "Add Reed".
 
 ### Uređivanje Jezička
 
-1. Kliknite na gumb "Uredi" pored jezička kojeg želite urediti.
+1. Kliknite na gumb "Edit" pored jezička kojeg želite urediti.
 2. Unesite nove podatke u prompt.
 3. Potvrdite promjene.
 
 ### Brisanje Jezička
 
-1. Kliknite na gumb "Obriši" pored jezička kojeg želite izbrisati.
+1. Kliknite na gumb "Delete" pored jezička kojeg želite izbrisati.
 2. Potvrdite brisanje.
 
 ## Doprinosi
@@ -107,4 +106,3 @@ Ovaj projekt je licenciran pod MIT licencom - pogledajte [LICENSE](LICENSE) dato
 ## Kontakt
 
 Za sva pitanja ili prijedloge, otvorite issue ili kontaktirajte vlasnika repozitorija.
-
