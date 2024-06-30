@@ -11,61 +11,34 @@ Ovaj projekt je jednostavna Flask aplikacija za upravljanje saksofonskim jezičc
 
 ## Instalacija
 
-### Kloniranje Repozitorija
+Kloirajte ovaj repozitorij na svoje računalo: 
 
-1. Klonirajte repozitorij:
+git clone https://github.com/Jocodesip/susj.git
+cd reed1
 
-    ```sh
-    git clone https://github.com/Jocodesip/susj.git
-    cd susj/reed1
-    ```
+## Gradnja Docker slike
 
-### Postavljanje Virtualnog Okruženja
+Otvorite cmd unutar direktorija reed1 kako bi se skinuli potrebni dependency
 
-2. Kreirajte virtualno okruženje i aktivirajte ga:
+docker build -t my-flask-app .
 
-    ```sh
-    python -m venv venv
-    source venv/bin/activate  # Na Windowsu koristite `venv\Scripts\activate`
-    ```
+## Pokretanje Docker kontejnera
 
-3. Instalirajte ovisnosti:
+docker run -d -p 8000:8000 --name flask-app-container -v C:\Put\Do\Tvog\Direktorija\instance:/app/instance my-flask-app
 
-    ```sh
-    pip install -r requirements.txt
-    ```
+Napomena: Zamijenite C:\Put\Do\Tvog\Direktorija sa stvarnom putanjom do direktorija gdje ste klonirali repozitorij.
+
+#Pristup aplikaciji
+
+http://localhost:8000
+
 
 ## Pokretanje Aplikacije Lokalno
 
-Za pokretanje aplikacije lokalno bez Dockera:
+Kako bi se skinuli svi depedency iz "requirments.txt"
 
-1. Provjerite je li virtualno okruženje aktivirano.
+docker build -t my-flask-app .
 
-2. Pokrenite Flask aplikaciju:
-
-    ```sh
-    python run.py
-    ```
-
-Aplikacija će biti dostupna na `http://localhost:8000`.
-
-## Pokretanje Aplikacije s Dockerom
-
-Za izgradnju i pokretanje aplikacije koristeći Docker:
-
-1. Izgradite Docker sliku:
-
-    ```sh
-    docker build -t reed1 .
-    ```
-
-2. Pokrenite Docker kontejner:
-
-    ```sh
-    docker run -p 8000:8000 reed1
-    ```
-
-Aplikacija će biti dostupna na `http://localhost:8000`.
 
 ## Korištenje Aplikacije
 
